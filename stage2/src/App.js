@@ -1,3 +1,5 @@
+import "./App.css";
+
 import {
   BrowserRouter,
   Routes,
@@ -11,31 +13,31 @@ import PriorityNotifications from "./pages/PriorityNotifications";
 function App() {
   return (
     <BrowserRouter>
-      <nav>
-        <Link to="/">
-          All Notifications
-        </Link>
+      <div className="container">
 
-        {" | "}
+        <nav>
+          <Link to="/">
+            All Notifications
+          </Link>
 
-        <Link to="/priority">
-          Priority Notifications
-        </Link>
-      </nav>
+          <Link to="/priority">
+            Priority Notifications
+          </Link>
+        </nav>
 
-      <br />
+        <Routes>
+          <Route
+            path="/"
+            element={<AllNotifications />}
+          />
 
-      <Routes>
-        <Route
-          path="/"
-          element={<AllNotifications />}
-        />
+          <Route
+            path="/priority"
+            element={<PriorityNotifications />}
+          />
+        </Routes>
 
-        <Route
-          path="/priority"
-          element={<PriorityNotifications />}
-        />
-      </Routes>
+      </div>
     </BrowserRouter>
   );
 }
